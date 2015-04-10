@@ -1,5 +1,5 @@
 var assert = require('assert');
-var aspect = require('.');
+var aspect = require('./index');
 
 describe('r_up()', function() {
   it('should return upper ratio', function() {
