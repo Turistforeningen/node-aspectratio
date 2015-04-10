@@ -1,0 +1,33 @@
+{
+  "name": "aspectratio",
+  "version": "1.0.0",
+  "description": "Image aspect ratio utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Turistforeningen/node-aspectratio.git"
+  },
+  "keywords": [
+    "photo",
+    "image",
+    "height",
+    "width",
+    "aspect",
+    "aspect",
+    "ratio",
+    "resize",
+    "crop"
+  ],
+  "author": "Hans Kristian Flaatten <hans.kristian.flaatten@turistforeningen.no>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Turistforeningen/node-aspectratio/issues"
+  },
+  "homepage": "https://github.com/Turistforeningen/node-aspectratio",
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  }
+}
