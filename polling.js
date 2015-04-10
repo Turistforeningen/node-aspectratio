@@ -26,5 +26,5 @@ function run(curr, prev) {
   child.on('close', function (code) {
     child = null;
   });
-};
+}
 
