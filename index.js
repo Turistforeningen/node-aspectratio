@@ -1,12 +1,12 @@
 exports.r_up = function(ratio) {
   ratio = ratio.split(':').sort();
-  return ratio[1] / ratio[0]
-}
+  return ratio[1] / ratio[0];
+};
 
 exports.r_down = function(ratio) {
   ratio = ratio.split(':').sort();
-  return ratio[0] / ratio[1]
-}
+  return ratio[0] / ratio[1];
+};
 
 exports.fixed = function(x, y, ratio) {
   var yʹ = y;
@@ -39,6 +39,6 @@ exports.fixed = function(x, y, ratio) {
     y - Δy,     // crop top left y
     x - Δx * 2, // crop width
     y - Δy * 2  // crop height
-  ]
-}
+  ];
+};
 
