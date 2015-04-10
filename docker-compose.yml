@@ -3,4 +3,4 @@ builder:
   working_dir: /usr/src/app
   volumes:
     - ".:/usr/src/app"
-  command: "./node_modules/.bin/mocha test.js -w"
+  command: "node polling.js"
