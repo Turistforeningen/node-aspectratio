@@ -30,6 +30,8 @@ Apply a fixed aspect `ratio` without distoring the image.
 * **integer** `width` - original image width
 * **string** `ratio` - new image ratio
 
+#### Return
+
 This will return an `Array` of four values:
 
 1. **integer** `x` - top lef x coordinate
