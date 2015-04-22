@@ -8,8 +8,6 @@
 
 Image aspect ratio utilities.
 
-[![Join the chat at https://gitter.im/Turistforeningen/node-s3-uploader](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Turistforeningen/node-s3-uploader)
-
 ## Install
 
 ```
