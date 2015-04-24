@@ -20,12 +20,12 @@ npm install aspectratio --save
 var aspect = require('aspectratio');
 ```
 
-### fixed(**integer** `height`, **integer** `width`, **string** `ratio`)
+### fixed(**integer** `width`, **integer** `height`, **string** `ratio`)
 
 Apply a fixed aspect `ratio` without distoring the image.
 
-* **integer** `height` - original image height
 * **integer** `width` - original image width
+* **integer** `height` - original image height
 * **string** `ratio` - new image ratio
 
 #### Return
