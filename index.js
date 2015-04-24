@@ -35,8 +35,8 @@ exports.fixed = function(x, y, ratio) {
   var Δy = Math.floor((y - yʹ) / 2);
 
   return [
-    0 + Δx,     // crop top left x
-    y - Δy,     // crop top left y
+    Δx,         // crop top left x
+    Δy,         // crop top left y
     x - Δx * 2, // crop width
     y - Δy * 2  // crop height
   ];
