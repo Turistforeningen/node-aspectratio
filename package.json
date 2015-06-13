@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -R spec test.js",
+    "hint": "./node_modules/.bin/jshint *.js",
     "watch": "./node_modules/.bin/mocha -w -b -c --check-leaks test.js"
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/Turistforeningen/node-aspectratio",
   "devDependencies": {
+    "jshint": "^2.8.0",
     "mocha": "^2.2.5"
   }
 }
