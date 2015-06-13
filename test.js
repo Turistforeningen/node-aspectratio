@@ -1,18 +1,6 @@
 var assert = require('assert');
 var aspect = require('./index');
 
-describe('r_up()', function() {
-  it('should return upper ratio', function() {
-    assert.equal(aspect.r_up('4:3'), 1.3333333333333333);
-  });
-});
-
-describe('r_down()', function() {
-  it('should return lower ratio', function() {
-    assert.equal(aspect.r_down('4:3'), 0.75);
-  });
-});
-
 describe('fixed()', function() {
   it('returns no crop for horizontal image with correct aspect ratio', function() {
     var crop = aspect.fixed(1024, 768, '4:3');

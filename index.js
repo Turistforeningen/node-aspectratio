@@ -1,33 +1,25 @@
-exports.r_up = function(ratio) {
-  ratio = ratio.split(':').sort();
-  return ratio[1] / ratio[0];
-};
-
-exports.r_down = function(ratio) {
-  ratio = ratio.split(':').sort();
-  return ratio[0] / ratio[1];
-};
-
 exports.fixed = function(x, y, ratio) {
   var yʹ = y;
   var xʹ = x;
 
+  ratio = ratio.split(':').sort();
+
   // This is a vertical image
   if (y > x) {
-    yʹ = x * exports.r_up(ratio);
+    yʹ = x * (ratio[1] / ratio[0]);
 
     if (yʹ > y) {
       yʹ = y;
-      xʹ = y * exports.r_down(ratio);
+      xʹ = y * (eratio[0] / ratio[1]);
     }
 
   // This is a horizontal image
   } else {
-    xʹ = y * exports.r_up(ratio);
+    xʹ = y * (ratio[1] / ratio[0]);
 
     if (xʹ > x) {
       xʹ = x;
-      yʹ = x * exports.r_down(ratio);
+      yʹ = x * (ratio[0] / ratio[1]);
     }
   }
 
@@ -41,4 +33,3 @@ exports.fixed = function(x, y, ratio) {
     y - Δy * 2  // crop height
   ];
 };
-
