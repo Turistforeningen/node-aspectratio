@@ -3,4 +3,4 @@ dev:
   working_dir: /usr/src/app
   volumes:
     - ".:/usr/src/app"
-  command: "node polling.js"
+  command: npm run watch

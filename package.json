@@ -4,7 +4,8 @@
   "description": "Image aspect ratio utility",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "./node_modules/.bin/mocha -R spec test.js",
+    "watch": "./node_modules/.bin/mocha -w -b -c --check-leaks test.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,6 @@
   },
   "homepage": "https://github.com/Turistforeningen/node-aspectratio",
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "^2.2.5"
   }
 }
