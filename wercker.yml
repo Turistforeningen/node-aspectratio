@@ -1,4 +1,4 @@
-box: wercker/nodejs
+box: iojs:2
 build:
     steps:
         - jshint:
