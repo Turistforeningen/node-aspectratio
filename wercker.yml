@@ -22,4 +22,4 @@ build:
 
 deploy:
     steps:
-        - kwakayama/npm-publish
+        - turistforeningen/npm-publish
