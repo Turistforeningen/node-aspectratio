@@ -1,6 +1,6 @@
-exports.fixed = function(x, y, ratio) {
-  var orient = ratio.split('!')[1];
-  var ratio  = ratio.split('!')[0].split(':').sort();
+exports.fixed = function(x, y, r) {
+  var orient = r.split('!')[1];
+  var ratio  = r.split('!')[0].split(':').sort();
 
   var vertical = y > x;
   var rotate = y > x && orient === 'h' || x > y && orient === 'v';
