@@ -28,6 +28,14 @@ Apply a fixed aspect `ratio` without distoring the image.
 * **integer** `height` - original image height
 * **string** `ratio` - new image ratio
 
+> The `ratio` must be on the following format: `x`:`y` where `x` and `y` are
+> integers. The order of `x` and `z` does not matter and `3:4` will be treated
+> as `4:3`.
+
+> By default #fixed() will match the orientation of the original image unless a
+> forced orientation is given on the follwing format: `x`:`y`!`z` where `z` is
+> the orientation (`v` for vertical, or `h` for horizontal).
+
 #### Return
 
 This will return an `Array` of four values:

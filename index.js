@@ -1,44 +1,45 @@
-exports.r_up = function(ratio) {
-  ratio = ratio.split(':').sort();
-  return ratio[1] / ratio[0];
-};
+exports.fixed = function(x, y, r) {
+  var orient = r.split('!')[1];
+  var ratio  = r.split('!')[0].split(':').sort();
 
-exports.r_down = function(ratio) {
-  ratio = ratio.split(':').sort();
-  return ratio[0] / ratio[1];
-};
+  var vertical = y > x;
+  var rotate = y > x && orient === 'h' || x > y && orient === 'v';
 
-exports.fixed = function(x, y, ratio) {
-  var yʹ = y;
+  if ((vertical || rotate) && !(vertical && rotate)) {
+    x = x + y;
+    y = x - y;
+    x = x - y;
+  }
+
   var xʹ = x;
+  var yʹ = x * (ratio[1] / ratio[0]);
 
-  // This is a vertical image
-  if (y > x) {
-    yʹ = x * exports.r_up(ratio);
-
-    if (yʹ > y) {
-      yʹ = y;
-      xʹ = y * exports.r_down(ratio);
-    }
-
-  // This is a horizontal image
-  } else {
-    xʹ = y * exports.r_up(ratio);
+  if (yʹ > y || rotate && yʹ > x) {
+    yʹ = y;
+    xʹ = y * (ratio[1] / ratio[0]);
 
     if (xʹ > x) {
       xʹ = x;
-      yʹ = x * exports.r_down(ratio);
+      yʹ = x * (ratio[0] / ratio[1]);
     }
   }
 
   var Δx = Math.floor((x - xʹ) / 2);
   var Δy = Math.floor((y - yʹ) / 2);
 
-  return [
-    Δx,         // crop top left x
-    Δy,         // crop top left y
-    x - Δx * 2, // crop width
-    y - Δy * 2  // crop height
-  ];
+  if ((vertical || rotate) && !(vertical && rotate)) {
+    return [
+      Δy,         // crop top left x
+      Δx,         // crop top left y
+      y - Δy * 2, // crop width
+      x - Δx * 2  // crop height
+    ];
+  } else {
+    return [
+      Δx,         // crop top left x
+      Δy,         // crop top left y
+      x - Δx * 2, // crop width
+      y - Δy * 2  // crop height
+    ];
+  }
 };
-

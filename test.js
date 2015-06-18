@@ -1,42 +1,190 @@
 var assert = require('assert');
 var aspect = require('./index');
 
-describe('r_up()', function() {
-  it('should return upper ratio', function() {
-    assert.equal(aspect.r_up('4:3'), 1.3333333333333333);
+describe('horizontal image', function() {
+  // 5184 × 3456
+  var width  = 5184;
+  var height = 3456;
+
+  describe('same orientation', function() {
+    it('returns crop for 1:1 aspect ratio', function() {
+      // 3456 × 3456
+      var crop = aspect.fixed(width, height, '1:1');
+      assert.deepEqual(crop, [ 864, 0, 3456, 3456 ]);
+    });
+
+    it('returns crop for 3:2 aspect ratio', function() {
+      // 5184 × 3456
+      var crop = aspect.fixed(width, height, '3:2');
+      assert.deepEqual(crop, [ 0, 0, 5184, 3456 ]);
+    });
+
+    it('returns crop for 3:5 aspect ratio', function() {
+      // 5184 × 3110
+      var crop = aspect.fixed(width, height, '3:5');
+      assert.deepEqual(crop, [ 0, 172, 5184, 3112 ]);
+    });
+
+    it('returns crop for 4:3 aspect ratio', function() {
+      // 4608 × 3456
+      var crop = aspect.fixed(width, height, '4:3');
+      assert.deepEqual(crop, [ 288, 0, 4608, 3456 ]);
+    });
+
+    it('returns crop for 5:7 aspect ratio', function() {
+      // 4838 × 3456
+      var crop = aspect.fixed(width, height, '5:7');
+      assert.deepEqual(crop, [ 172, 0, 4840, 3456 ]);
+    });
+
+    it('returns crop for 8:10 aspect ratio', function() {
+      // 4320 × 3456
+      var crop = aspect.fixed(width, height, '8:10');
+      assert.deepEqual(crop, [ 1209, 0, 2766, 3456 ]);
+    });
+
+    it('returns crop for 16:9 aspect ratio', function() {
+      // 5184 × 2916
+      var crop = aspect.fixed(width, height, '16:9');
+      assert.deepEqual(crop, [ 0, 270, 5184, 2916 ]);
+    });
+  });
+
+  describe('vertical orientation', function() {
+    it('returns crop for 1:1 aspect ratio', function() {
+      // 3456 × 3456
+      var crop = aspect.fixed(width, height, '1:1!v');
+      assert.deepEqual(crop, [ 864, 0, 3456, 3456 ]);
+    });
+
+    it('returns crop for 3:2 aspect ratio', function() {
+      // 2304 × 3456
+      var crop = aspect.fixed(width, height, '3:2!v');
+      assert.deepEqual(crop, [ 1440, 0, 2304, 3456 ]);
+    });
+
+    it('returns crop for 3:5 aspect ratio', function() {
+      // 2074 × 3456
+      var crop = aspect.fixed(width, height, '3:5!v');
+      assert.deepEqual(crop, [ 1555, 0, 2074, 3456 ]);
+    });
+
+    it('returns crop for 4:3 aspect ratio', function() {
+      // 2592 × 3456
+      var crop = aspect.fixed(width, height, '4:3!v');
+      assert.deepEqual(crop, [ 1296, 0, 2592, 3456 ]);
+    });
+
+    it('returns crop for 5:7 aspect ratio', function() {
+      // 2469 × 3456
+      var crop = aspect.fixed(width, height, '5:7!v');
+      assert.deepEqual(crop, [ 1357, 0, 2470, 3456 ]);
+    });
+
+    it('returns crop for 8:10 aspect ratio', function() {
+      // 2765 × 3456
+      var crop = aspect.fixed(width, height, '8:10!v');
+      assert.deepEqual(crop, [ 1209, 0, 2766, 3456 ]);
+    });
+
+    it('returns crop for 16:9 aspect ratio', function() {
+      // 1944 × 3456
+      var crop = aspect.fixed(width, height, '16:9!v');
+      assert.deepEqual(crop, [ 1620, 0, 1944, 3456 ]);
+    });
   });
 });
 
-describe('r_down()', function() {
-  it('should return lower ratio', function() {
-    assert.equal(aspect.r_down('4:3'), 0.75);
+describe('vertical image', function() {
+  // 3456 x 5184
+  var width  = 3456;
+  var height = 5184;
+
+  describe('same orientation', function() {
+    it('returns crop for 1:1 aspect ratio', function() {
+      // 3456 × 3456
+      var crop = aspect.fixed(width, height, '1:1');
+      assert.deepEqual(crop, [ 0, 864, 3456, 3456 ]);
+    });
+
+    it('returns crop for 3:2 aspect ratio', function() {
+      // 5184 × 3456
+      var crop = aspect.fixed(width, height, '3:2');
+      assert.deepEqual(crop, [ 0, 0, 3456, 5184 ]);
+    });
+
+    it('returns crop for 3:5 aspect ratio', function() {
+      // 5184 × 3110
+      var crop = aspect.fixed(width, height, '3:5');
+      assert.deepEqual(crop, [ 172, 0, 3112, 5184 ]);
+    });
+
+    it('returns crop for 4:3 aspect ratio', function() {
+      // 4608 × 3456
+      var crop = aspect.fixed(width, height, '4:3');
+      assert.deepEqual(crop, [ 0, 288, 3456, 4608 ]);
+    });
+
+    it('returns crop for 5:7 aspect ratio', function() {
+      // 4838 × 3456
+      var crop = aspect.fixed(width, height, '5:7');
+      assert.deepEqual(crop, [ 0, 172, 3456, 4840 ]);
+    });
+
+    it('returns crop for 8:10 aspect ratio', function() {
+      // 4320 × 3456
+      var crop = aspect.fixed(width, height, '8:10');
+      assert.deepEqual(crop, [ 0, 1209, 3456, 2766 ]);
+    });
+
+    it('returns crop for 16:9 aspect ratio', function() {
+      // 5184 × 2916
+      var crop = aspect.fixed(width, height, '16:9');
+      assert.deepEqual(crop, [ 270, 0, 2916, 5184 ]);
+    });
+  });
+
+  describe('vertical orientation', function() {
+    it('returns crop for 1:1 aspect ratio', function() {
+      // 3456 × 3456
+      var crop = aspect.fixed(width, height, '1:1!h');
+      assert.deepEqual(crop, [ 0, 864, 3456, 3456 ]);
+    });
+
+    it('returns crop for 3:2 aspect ratio', function() {
+      // 3456 × 2304
+      var crop = aspect.fixed(width, height, '3:2!h');
+      assert.deepEqual(crop, [ 0, 1440, 3456, 2304 ]);
+    });
+
+    it('returns crop for 3:5 aspect ratio', function() {
+      // 3456 × 2074
+      var crop = aspect.fixed(width, height, '3:5!h');
+      assert.deepEqual(crop, [ 0, 1555, 3456, 2074 ]);
+    });
+
+    it('returns crop for 4:3 aspect ratio', function() {
+      // 3456 × 2592
+      var crop = aspect.fixed(width, height, '4:3!h');
+      assert.deepEqual(crop, [ 0, 1296, 3456, 2592 ]);
+    });
+
+    it('returns crop for 5:7 aspect ratio', function() {
+      // 3456 × 2469
+      var crop = aspect.fixed(width, height, '5:7!h');
+      assert.deepEqual(crop, [ 0, 1357, 3456, 2470 ]);
+    });
+
+    it('returns crop for 8:10 aspect ratio', function() {
+      // 3456 × 2765
+      var crop = aspect.fixed(width, height, '8:10!h');
+      assert.deepEqual(crop, [ 0, 1209, 3456, 2766 ]);
+    });
+
+    it('returns crop for 16:9 aspect ratio', function() {
+      // 3456 × 1944
+      var crop = aspect.fixed(width, height, '16:9!h');
+      assert.deepEqual(crop, [ 0, 1620, 3456, 1944 ]);
+    });
   });
 });
-
-describe('fixed()', function() {
-  it('returns no crop for horizontal image with correct aspect ratio', function() {
-    var crop = aspect.fixed(1024, 768, '4:3');
-    assert.deepEqual(crop, [0, 0, 1024, 768]);
-  });
-
-  it('returns crop for horizontal image with incorrect aspect ratio', function() {
-    var crop = aspect.fixed(2048, 768, '4:3');
-    assert.deepEqual(crop, [512, 0, 1024, 768]);
-  });
-
-  it('returns crop for near square horizontal image with incorrect aspect ratio', function() {
-    var crop = aspect.fixed(780, 768, '4:3');
-    assert.deepEqual(crop, [0, 91, 780, 586]);
-  });
-
-  it('returns no crop for vertical image with correct aspect ratio', function() {
-    var crop = aspect.fixed(768, 1024, '4:3');
-    assert.deepEqual(crop, [0, 0, 768, 1024]);
-  });
-
-  it('returns crop for vertical image with incorrect aspect ratio', function() {
-    var crop = aspect.fixed(768, 2048, '4:3');
-    assert.deepEqual(crop, [0, 512, 768, 1024]);
-  });
-});
-
