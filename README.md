@@ -20,9 +20,9 @@ npm install aspectratio --save
 var aspect = require('aspectratio');
 ```
 
-### fixed(**integer** `width`, **integer** `height`, **string** `ratio`)
+### crop(**integer** `width`, **integer** `height`, **string** `ratio`)
 
-Apply a fixed aspect `ratio` without distoring the image.
+Apply a fixed aspect `ratio` crop without distoring the image.
 
 * **integer** `width` - original image width
 * **integer** `height` - original image height
@@ -32,7 +32,7 @@ Apply a fixed aspect `ratio` without distoring the image.
 > integers. The order of `x` and `z` does not matter and `3:4` will be treated
 > as `4:3`.
 
-> By default #fixed() will match the orientation of the original image unless a
+> By default #crop() will match the orientation of the original image unless a
 > forced orientation is given on the follwing format: `x`:`y`!`z` where `z` is
 > the orientation (`v` for vertical, or `h` for horizontal).
 
@@ -48,7 +48,7 @@ This will return an `Array` of four values:
 #### Example
 
 ```js
-var crop = aspect.fixed(2048, 768, '4:3');
+var crop = aspect.crop(2048, 768, '4:3');
 // [512, 768, 1024, 768]
 ```
 

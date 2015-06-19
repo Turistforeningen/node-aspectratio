@@ -1,4 +1,4 @@
-exports.fixed = function(x, y, r) {
+exports.crop = function(x, y, r) {
   var orient = r.split('!')[1];
   var ratio  = r.split('!')[0].split(':').sort();
 
@@ -43,3 +43,5 @@ exports.fixed = function(x, y, r) {
     ];
   }
 };
+
+exports.fixed = require('util').deprecate(exports.crop, 'aspect.fixed: Use aspect.crop instead');
