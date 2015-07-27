@@ -22,7 +22,7 @@ var aspect = require('aspectratio');
 
 ### crop(**integer** `width`, **integer** `height`, **string** `ratio`)
 
-Apply a fixed aspect `ratio` crop without distoring the image.
+Apply a fixed aspect `ratio` crop without distoring the image aspect ratio.
 
 * **integer** `width` - original image width
 * **integer** `height` - original image height
