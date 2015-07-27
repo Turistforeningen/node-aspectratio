@@ -1,6 +1,6 @@
 {
   "name": "aspectratio",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Image aspect ratio utility",
   "main": "index.js",
   "scripts": {
