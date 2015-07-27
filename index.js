@@ -1,3 +1,5 @@
+var deprecate = require('util').deprecate;
+
 exports.crop = function(x, y, r) {
   var orient = r.split('!')[1];
   var ratio  = r.split('!')[0].split(':').sort();
@@ -44,4 +46,23 @@ exports.crop = function(x, y, r) {
   }
 };
 
-exports.fixed = require('util').deprecate(exports.crop, 'aspect.fixed: Use aspect.crop instead');
+exports.fixed = deprecate(exports.crop, 'aspect.fixed: Use aspect.crop instead');
+
+exports.resize = function(x, y, xMax, yMax) {
+  if (xMax && yMax) {
+    // Maximum values of height and width given, aspect ratio preserved.
+    if (y > x) {
+      return [Math.floor(yMax * x / y), yMax];
+    } else {
+      return [xMax, Math.floor(xMax * y / x)];
+    }
+
+  } else if (xMax) {
+    // Width given, height automagically selected to preserve aspect ratio.
+    return [xMax, Math.floor(xMax * y / x)];
+
+  } else {
+    // Height given, width automagically selected to preserve aspect ratio.
+    return [Math.floor(yMax * x / y), yMax];
+  }
+}

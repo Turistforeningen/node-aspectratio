@@ -54,4 +54,21 @@ var crop = aspect.crop(2048, 768, '4:3');
 
 ![Cropp with fixed ratio](https://docs.google.com/drawings/d/1Lu8eLqcjjlI0YL7Q-YHg0ttjRC8I8Vkwq6PVXRgxNUo/pub?w=960&h=720)
 
+### resize(**integer** `x`, **integer** `y`, **integer** `maxX`, **integer** `maxY`)
+
+Get resized height and width of an image while perserving the aspect ratio of
+the image.
+
+* **integer** `x` - original image width
+* **integer** `y` - original image height
+* **integer** `maxX` - max image width
+* **integer** `maxY` - max image height
+
+### Return
+
+Returns an `Array` of the resized `x` and `y` values:
+
+* **integer** `x` - resized image width
+* **integer** `y` - resized image height
+
 ## [MIT License](https://github.com/Turistforeningen/node-aspectratio/blob/master/LICENSE)
