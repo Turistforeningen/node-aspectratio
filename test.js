@@ -1,6 +1,50 @@
 var assert = require('assert');
 var aspect = require('./index');
 
+describe('aspect.resize', function() {
+  var vertical = { x: 3456, y: 5184 };
+  var horizontal = { x: 5184, y: 3456 };
+
+  var maxX = 500;
+  var maxY = 500;
+
+  describe('maxX only', function() {
+    it('returns bounds for horizontal image', function() {
+      var bounds = aspect.resize(horizontal.x, horizontal.y, maxX);
+      assert.deepEqual(bounds, [ 500, 333 ]);
+    });
+
+    it('returns bounds for vertical image', function() {
+      var bounds = aspect.resize(vertical.x, vertical.y, maxX);
+      assert.deepEqual(bounds, [ 500, 750 ]);
+    });
+  });
+
+  describe('maxY only', function() {
+    it('returns bounds for horizontal image', function() {
+      var bounds = aspect.resize(horizontal.x, horizontal.y, undefined, maxY);
+      assert.deepEqual(bounds, [ 750, 500 ]);
+    });
+
+    it('returns bounds for vertical image', function() {
+      var bounds = aspect.resize(vertical.x, vertical.y, undefined, maxY);
+      assert.deepEqual(bounds, [ 333, 500 ]);
+    });
+  });
+
+  describe('maxX and maxY', function() {
+    it('returns bounds for horizontal image', function() {
+      var bounds = aspect.resize(horizontal.x, horizontal.y, 500, 500);
+      assert.deepEqual(bounds, [ 500, 333 ]);
+    });
+
+    it('returns bounds for vertical image', function() {
+      var bounds = aspect.resize(vertical.x, vertical.y, 500, 500);
+      assert.deepEqual(bounds, [ 333, 500 ]);
+    });
+  });
+});
+
 describe('horizontal image', function() {
   // 5184 × 3456
   var width  = 5184;
@@ -144,7 +188,7 @@ describe('vertical image', function() {
     });
   });
 
-  describe('vertical orientation', function() {
+  describe('horizontal orientation', function() {
     it('returns crop for 1:1 aspect ratio', function() {
       // 3456 × 3456
       var crop = aspect.crop(width, height, '1:1!h');
