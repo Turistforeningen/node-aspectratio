@@ -3,9 +3,9 @@ exports.crop = function(x, y, r) {
   var ratio  = r.split('!')[0].split(':').sort();
 
   var vertical = y > x;
-  var rotate = y > x && orient === 'h' || x > y && orient === 'v';
+  var rotate = y > x && orient === 'h' || x > y && orient === 'v';
 
-  if ((vertical || rotate) && !(vertical && rotate)) {
+  if ((vertical || rotate) && !(vertical && rotate)) {
     x = x + y;
     y = x - y;
     x = x - y;
@@ -14,7 +14,7 @@ exports.crop = function(x, y, r) {
   var xʹ = x;
   var yʹ = x * (ratio[1] / ratio[0]);
 
-  if (yʹ > y || rotate && yʹ > x) {
+  if (yʹ > y || rotate && yʹ > x) {
     yʹ = y;
     xʹ = y * (ratio[1] / ratio[0]);
 
@@ -27,7 +27,7 @@ exports.crop = function(x, y, r) {
   var Δx = Math.floor((x - xʹ) / 2);
   var Δy = Math.floor((y - yʹ) / 2);
 
-  if ((vertical || rotate) && !(vertical && rotate)) {
+  if ((vertical || rotate) && !(vertical && rotate)) {
     return [
       Δy,         // crop top left x
       Δx,         // crop top left y
