@@ -188,7 +188,7 @@ describe('vertical image', function() {
     });
   });
 
-  describe('vertical orientation', function() {
+  describe('horizontal orientation', function() {
     it('returns crop for 1:1 aspect ratio', function() {
       // 3456 × 3456
       var crop = aspect.crop(width, height, '1:1!h');
