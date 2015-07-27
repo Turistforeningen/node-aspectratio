@@ -65,4 +65,4 @@ exports.resize = function(x, y, xMax, yMax) {
     // Height given, width automagically selected to preserve aspect ratio.
     return [Math.floor(yMax * x / y), yMax];
   }
-}
+};
