@@ -26,22 +26,22 @@ exports.crop = function(x, y, r) {
     }
   }
 
-  var Δx = Math.floor((x - xʹ) / 2);
-  var Δy = Math.floor((y - yʹ) / 2);
+  var Δx = (x - xʹ) / 2;
+  var Δy = (y - yʹ) / 2;
 
   if ((vertical || rotate) && !(vertical && rotate)) {
     return [
-      Δy,         // crop top left x
-      Δx,         // crop top left y
-      y - Δy * 2, // crop width
-      x - Δx * 2  // crop height
+      Math.floor(Δy),         // crop top left x
+      Math.floor(Δx),         // crop top left y
+      Math.floor(y - Δy * 2), // crop width
+      Math.floor(x - Δx * 2)  // crop height
     ];
   } else {
     return [
-      Δx,         // crop top left x
-      Δy,         // crop top left y
-      x - Δx * 2, // crop width
-      y - Δy * 2  // crop height
+      Math.floor(Δx),         // crop top left x
+      Math.floor(Δy),         // crop top left y
+      Math.floor(x - Δx * 2), // crop width
+      Math.floor(y - Δy * 2)  // crop height
     ];
   }
 };

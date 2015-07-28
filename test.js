@@ -50,6 +50,11 @@ describe('horizontal image', function() {
   var width  = 5184;
   var height = 3456;
 
+  it.skip('foo', function() {
+    var crop = aspect.crop(800, 600, '3:2');
+    console.log(crop);
+  });
+
   describe('same orientation', function() {
     it('returns crop for 1:1 aspect ratio', function() {
       // 3456 × 3456
