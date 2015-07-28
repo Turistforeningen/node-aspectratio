@@ -52,17 +52,17 @@ exports.resize = function(x, y, xMax, yMax) {
   if (xMax && yMax) {
     // Maximum values of height and width given, aspect ratio preserved.
     if (y > x) {
-      return [Math.floor(yMax * x / y), yMax];
+      return [Math.round(yMax * x / y), yMax];
     } else {
-      return [xMax, Math.floor(xMax * y / x)];
+      return [xMax, Math.round(xMax * y / x)];
     }
 
   } else if (xMax) {
     // Width given, height automagically selected to preserve aspect ratio.
-    return [xMax, Math.floor(xMax * y / x)];
+    return [xMax, Math.round(xMax * y / x)];
 
   } else {
     // Height given, width automagically selected to preserve aspect ratio.
-    return [Math.floor(yMax * x / y), yMax];
+    return [Math.round(yMax * x / y), yMax];
   }
 };

@@ -42,6 +42,11 @@ describe('aspect.resize', function() {
       var bounds = aspect.resize(vertical.x, vertical.y, 500, 500);
       assert.deepEqual(bounds, [ 333, 500 ]);
     });
+
+    it('properly rounds all edges', function() {
+      var bounds = aspect.resize(800, 534, 500, 500);
+      assert.deepEqual(bounds, [ 500, 334 ]);
+    });
   });
 });
 
