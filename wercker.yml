@@ -1,4 +1,5 @@
-box: iojs:2
+box: node:argon-slim
+
 build:
     steps:
         - npm-install

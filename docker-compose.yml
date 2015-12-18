@@ -1,5 +1,5 @@
 dev:
-  image: iojs:2
+  image: node:argon-slim
   working_dir: /usr/src/app
   volumes:
     - ".:/usr/src/app"
