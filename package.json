@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Turistforeningen/node-aspectratio",
   "devDependencies": {
-    "jshint": "^2.8.0",
+    "jshint": "^2.9.4",
     "mocha": "^2.2.5"
   }
 }
